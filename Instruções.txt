@@ -18,6 +18,9 @@ Precisa ficar atento para ver se o seu IP não foi banido.
 
 - "vistoria - urls.ipynb" ... Aqui, vemos se funcionou e a forma dos dados. 
 
+Enquanto estiver coletando URLs ou HTMLs, não rode as vistorias! Pode crashar o SQL!!
+	Mas, se você pausar a coleta, pode rodar à vontade para ver o progresso.
+
 
 ---
 
@@ -65,6 +68,7 @@ Por fim, temos na modelagem econométrica os seguintes códigos:
 
 Só rodar nessa ordem e já era, acabou. 
 Essa parte é rápida, uma hora no máximo.
+
 
 
 
