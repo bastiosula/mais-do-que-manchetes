@@ -1,84 +1,69 @@
-A ordem dos códigos é a listada abaixo.
-Obs: precisa rodar todos, sem exceção e na ordem.
-É bom ter ao menos 16GB de RAM, mas pode ser que nem isso seja suficiente.
+INSTRUÇÕES DE EXECUÇÃO
+
+REQUISITOS DE SISTEMA
+Para referência de capacidade e tempo, seguem minhas especificações:
+- Processador: Intel(R) Core(TM) i7-7820HQ CPU @ 2.90GHz;
+- Memória: 32GB, mas 16GB talvez seja suficiente.
+
+ORDEM DE EXECUÇÃO
+IMPORTANTE: Execute todos os códigos na ordem especificada, sem exceções.
+
+===============================================================================
+
+1. COLETA E TRATAMENTO
+
+1.1 Coleta de URLs
+Diretório: urls/
+
+Execute sequencialmente:
+1. "urls via sitemap.ipynb" (duração: dezenas de minutos)
+2. "urls via busca.ipynb" (duração: dias a semanas)
+3. "vistoria - urls.ipynb" (verificação dos dados coletados)
+
+Duração: uma ou duas semanas, no máximo. Se rodar 24h por dia, talvez menos.
 
 
---------- 1
+1.2 Coleta de HTMLs
+Diretório: htmls/
+
+- Notebooks separados por portal (execução paralela possível)
+- Monitore possível banimento de IP
+
+Duração: uma semana, no máximo. Mas depende do seu computador e sua internet.
 
 
-Em coleta e tratamento, primeiro pegamos as URLs e, depois, os HTMLS.
+1.3 Processamento final
+Diretório raiz:
+- Execute "filtro e refino da base.ipynb" (na ordem das células).
 
-Na pasta "urls", rode os seguintes códigos:
-
-- "urls via sitemap.ipynb" (demora dezenas de minutos);
-- "urls via busca.ipynb" (dura dias ou semanas, depende).
-
-Precisa ficar atento para ver se o seu IP não foi banido.
-	O código já está freiado, não deve acontecer, mas olhe mesmo assim.
-
-- "vistoria - urls.ipynb" ... Aqui, vemos se funcionou e a forma dos dados. 
-
-Enquanto estiver coletando URLs ou HTMLs, não rode as vistorias! Pode crashar o SQL!!
-	Mas, se você pausar a coleta, pode rodar à vontade para ver o progresso.
+Duração: uma ou duas horas, demora menos quão melhor for o seu processador.
 
 
----
+ATENÇÃO:
+- Monitore possível banimento de IP (os códigos possuem limitadores, mas podem falhar);
+- Não execute vistorias durante coleta ativa (risco de crashar o SQL);
+- Vistorias podem ser executadas durante pausas na coleta.
 
+===============================================================================
 
-Depois, em "htmls" há um monte de notebooks, um para cada portal.
-Você pode rodar todos ao mesmo tempo, tanto faz.
-Também dá para criar mais para outros portais ou alterar os já existentes.
-Só é para rodar essa parte depois de terminar a das URLs, obviamente.
+2. DISTRIBUIÇÃO DE TÓPICOS
 
-Precisa ficar atento para ver se o seu IP não foi banido.
-	O código já está freiado, não deve acontecer, mas olhe mesmo assim.
+Execute sequencialmente:
+1. "perplexidades.ipynb";
+2. "random search.ipynb";
+3. Notebooks de vistoria;
+4. "modelagem, finalmente.ipynb".
 
-Também demora um tempo essa parte, mas é questão de dias. De 3 a 5, não lembro.
+Duração: 1 a 3 dias (varia muito conforme capacidade computacional).
 
+===============================================================================
 
----
+3. MODELAGEM ECONOMÉTRICA
 
+Execute sequencialmente:
+1. "preparação da base final.ipynb"
+2. "VAR.R"
+3. "LP.R"
+4. "avaliação dos resultados.ipynb"
 
-Depois, na raiz você deve rodar "filtro e refino da base.ipynb" na ordem das células.
-E pronto, a base estará pronta. Você só terá que esperar bastante para tal...
-
-
---------- 2
-
-
-Na distribuição de tópicos, primeiro rode "perplexidades.ipynb" 
-e depois "random search.ipynb". Demora de 1 a 3 dias essa parte.
-
-Quão mais ruim o seu computador, mais demora. O meu tem 8 CPUs.
-
-Depois, são as respesctivas vistorias...
-
-Por fim, "modelagem, finalmente.ipynb".
-
-
---------- 3
-
-
-Por fim, temos na modelagem econométrica os seguintes códigos:
-
-"preparação da base final.ipynb"
-"VAR.R"
-"LP.R"
-"avaliação dos resultados.ipynb"
-
-Só rodar nessa ordem e já era, acabou. 
-Essa parte é rápida, uma hora no máximo.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Duração: uma hora, no máximo, se o computador for minimamante bom.
